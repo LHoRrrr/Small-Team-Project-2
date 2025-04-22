@@ -9,19 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    
     public function up(): void
     {
-         Schema::create('product', function(Blueprint $table) {
-            $table->id('pid');
-            $table->string('pname', 100);
-         }); 
+        Schema::create('slideshow', function (Blueprint $table) {
+            $table->id('ssid');
+            $table->string('sstitle',100);
+            $table->timestamps();
+        });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('slideshow');
     }
 };

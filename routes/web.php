@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\MyHomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',function (){
-    return view('home');
-});
+Route::get('/',[MyHomeController::class, 'index']
+);
 Route::get('/cart', function() {
     return view('cart');
 });

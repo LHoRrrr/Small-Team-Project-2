@@ -37,7 +37,7 @@
 
 
         <!-- Hero Start -->
-        @include('includes.slide');
+        <!-- @include('includes.slide'); -->
         <!-- Hero End -->
         
         <!-- Home -->

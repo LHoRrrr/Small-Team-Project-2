@@ -11,27 +11,27 @@
 
 
         <!-- Featurs Start -->
-        @include('includes.discount');
+        <!-- @include('includes.discount'); -->
         <!-- Featurs End -->
 
 
         <!-- Vesitable Shop Start-->
-        @include('includes.vegetable');
+        <!-- @include('includes.vegetable'); -->
         <!-- Vesitable Shop End -->
 
 
         <!-- Banner Section Start-->
-        @include('includes.banner');
+        <!-- @include('includes.banner'); -->
         <!-- Banner Section End -->
 
 
         <!-- Bestsaler Product Start -->
-        @include('includes.bestseller');
+        <!-- @include('includes.bestseller'); -->
         <!-- Bestsaler Product End -->
 
 
         <!-- Fact Start -->
-        @include('includes.fact');
+        <!-- @include('includes.fact'); -->
         <!-- Fact Start -->
 
 
