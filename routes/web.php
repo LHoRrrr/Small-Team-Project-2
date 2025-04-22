@@ -20,8 +20,9 @@ Route::get('/',[MyHomeController::class, 'index']
 Route::get('/cart', function() {
     return view('cart');
 });
-Route::view('/admins','admin.index')->name('index');
+Route::view('/admins','admin.dashboard')->name('admins');
 // Route::view('/admin', 'admin.index');
+Route::view('/slideshow', 'admin.slideshow')->name('/slideshow');
 
 
 

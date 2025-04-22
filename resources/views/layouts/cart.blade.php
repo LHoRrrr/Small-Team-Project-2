@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    @include('includes.head');
+    @include('includes.head')
 
     <body>
 
@@ -12,7 +12,7 @@
 
 
         <!-- Navbar start -->
-            @include('includes.nav');
+            @include('includes.nav')
         <!-- Navbar End -->
 
 
@@ -42,15 +42,15 @@
         
         <!-- Home -->
 
-         @yield('content');
+         @yield('content')
 
         <!-- Home -->
 
         
         <!-- Footer Start -->
-        @include('includes.footer');
+        @include('includes.footer')
     <!-- JavaScript Libraries -->
-    @include('includes.foot');
+    @include('includes.foot')
     </body>
 
 </html>

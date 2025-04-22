@@ -1,12 +1,12 @@
 @extends('layouts.default');
 @section('content')
 <!-- Featurs Section Start -->
-      @include('includes.feature');
+      @include('includes.feature')
         <!-- Featurs Section End -->
 
 
         <!-- Fruits Shop Start-->
-            @include('includes.fruite');
+            @include('includes.fruite')
         <!-- Fruits Shop End-->
 
 
@@ -36,7 +36,7 @@
 
 
         <!-- Tastimonial Start -->
-        @include('includes.testimonial');
+        @include('includes.testimonial')
         <!-- Tastimonial End -->
 @endsection
 
