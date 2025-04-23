@@ -13,8 +13,12 @@ return new class extends Migration
     public function up(): void
     {
          Schema::create('product', function(Blueprint $table) {
-            $table->id('pid');
+            $table->bigIncrements('pid');
             $table->string('pname', 100);
+            $table->string('pdesc', 300);
+            $table->decimal('price', 8, 2);
+            $table->boolean('enable');
+            $table->integer('porder');
          }); 
     }
     /**

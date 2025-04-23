@@ -30,7 +30,7 @@
               <li class="nav-item active">
                 <a
                   data-bs-toggle="collapse"
-                  href="admins"
+                  href="/admins"
                   class="collapsed"
                   aria-expanded="false"
                 >
@@ -40,14 +40,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="slideshow">
-                  <i class="fas fa-desktop"></i>
+                <a href="/slideshow">
+                  <i class="fas fa-home"></i>
                   <p>Slideshows</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
+                <a href="/product">
+                  <i class="fas fa-product"></i>
                   <p>Products</p>
                 </a>
               </li>

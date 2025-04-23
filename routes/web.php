@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\MyCartController;
+use App\Http\Controllers\MyDashboardController;
 use App\Http\Controllers\MyHomeController;
+use App\Http\Controllers\MyProductController;
+use App\Http\Controllers\MySlideshowController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,12 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[MyHomeController::class, 'index']
 );
-Route::get('/cart', function() {
-    return view('cart');
-});
-Route::view('/admins','admin.dashboard')->name('admins');
-// Route::view('/admin', 'admin.index');
-Route::view('/slideshow', 'admin.slideshow')->name('/slideshow');
+
+Route::get('/cart',[MyCartController::class,'cart']);
+
+Route::get('/admins', [MyDashboardController::class, 'dashboard']);
+
+Route::get('/slideshow',[MySlideshowController::class, 'slideshow']);
+Route::get('/product',[MyProductController::class,'product']);
+#Route::view('/slideshow', 'admin.slideshow')->name('/slideshow');
 
 
 
