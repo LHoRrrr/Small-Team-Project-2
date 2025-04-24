@@ -41,13 +41,13 @@
               </li>
               <li class="nav-item">
                 <a href="/slideshow">
-                  <i class="fas fa-home"></i>
+                  <i class="fas fa-sliders"></i>
                   <p>Slideshows</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/product">
-                  <i class="fas fa-product"></i>
+                  <i class="fas fa-cart-shopping"></i>
                   <p>Products</p>
                 </a>
               </li>

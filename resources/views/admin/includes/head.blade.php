@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="admin/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="admin/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="admin/assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="admin/assets/css/general.css">
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="admin/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">

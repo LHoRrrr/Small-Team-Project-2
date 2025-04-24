@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             "pname" => $this->faker->word(), // or ->sentence(2) if you want a short name
             "pdesc" => $this->faker->sentence(10), // longer for description
             "price" => $this->faker->randomFloat(2, 1, 9999), // 2 decimal places, range 1 - 9999
-            'image' => $this->faker->imageUrl(640, 480, 'products', true),
+            "image" => $this->faker->randomElement(['fruit1.jpg', 'fruit2.jpg', 'fruit3.jpg']),
             "enable" => $this->faker->boolean(),
             "porder" => $this->faker->numberBetween(1, 100)
         ];

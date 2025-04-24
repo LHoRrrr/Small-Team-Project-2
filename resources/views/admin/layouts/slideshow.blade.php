@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  @include('admin.includes.head');
+  @include('admin.includes.head')
 
   <body>
     <div class="wrapper">
