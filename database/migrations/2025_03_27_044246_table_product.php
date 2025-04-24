@@ -12,14 +12,16 @@ return new class extends Migration
     
     public function up(): void
     {
-         Schema::create('product', function(Blueprint $table) {
-            $table->bigIncrements('pid');
+        Schema::create('product', function (Blueprint $table) {
+            $table->id('pid');
             $table->string('pname', 100);
             $table->string('pdesc', 300);
+            $table->string('image')->nullable();
             $table->decimal('price', 8, 2);
             $table->boolean('enable');
             $table->integer('porder');
-         }); 
+            $table->timestamps(); // 👈 add this line
+        });
     }
     /**
      * Reverse the migrations.

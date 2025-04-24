@@ -14,6 +14,7 @@ class Product extends Model
         "pname",
         "pdesc",
         "price",
+        "image",
         "enable",
         "porder"
     ];

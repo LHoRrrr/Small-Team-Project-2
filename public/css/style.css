@@ -1,5 +1,7 @@
 
 /*** Spinner Start ***/
+
+
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -494,4 +496,16 @@
     line-height: 35px;
 }
 /*** Footer End ***/
+
+.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em;
+    min-height: calc(1.5em * 5); /* Ensures space for 5 lines */
+    max-height: calc(1.5em * 5); /* Optional: clamps to exactly 5 lines */
+  }
+
 
