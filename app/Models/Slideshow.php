@@ -12,7 +12,7 @@ class Slideshow extends Model
     protected $primaryKey = 'ssid';
     protected $fillable = [
         'title',
-        'img',
+        'image',
         'enable',
         'ssorder',
     ];

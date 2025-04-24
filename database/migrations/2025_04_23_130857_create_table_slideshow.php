@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('table_slideshow', function (Blueprint $table) {
             $table->bigIncrements('ssid');
             $table->string('title');
-            $table->string('img');
+            $table->string('image');
             $table->boolean('enable');
             $table->integer('ssorder');
             $table->timestamp('create_time')->nullable(); // OR $table->timestamps() for Laravel default
-        });        
+        });
     }
     /**
      * Reverse the migrations.

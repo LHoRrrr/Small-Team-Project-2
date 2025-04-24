@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('slideshow', function (Blueprint $table) {
             $table->id('ssid');
-            $table->string('sstitle',100);
+            $table->string('sstitle', 100);
             $table->timestamps();
         });
     }
