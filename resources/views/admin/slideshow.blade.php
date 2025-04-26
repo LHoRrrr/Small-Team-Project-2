@@ -1,7 +1,8 @@
 @extends('admin.layouts.slideshow')
 @section('content')
-<button class="btn btn-primary btn-margin">Add New Slideshow</button>
-<table class="table m-5">
+<div class="container">
+<button class="btn btn-primary m-3">Add New Slideshow</button>
+<table class="table m-3">
   <thead>
     <tr>
       <th>No</th>
@@ -29,4 +30,5 @@
     @endforeach
   </tbody>
 </table>
+</div>
 @endsection

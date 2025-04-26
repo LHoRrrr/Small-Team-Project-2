@@ -30,12 +30,10 @@ Route::get('/cart',[MyCartController::class,'cart']);
 //Route::get('/admins', [MyDashboardController::class, 'dashboard'])->middleware('isAdmin');
 
 Route::get('/admins/slideshow',[MySlideshowController::class, 'slideshow']);
-Route::get('/admins/product',[MyProductController::class,'product']);
+Route::get('/admins/product',[MyProductController::class,'product'])->name('product');
 #Route::view('/slideshow', 'admin.slideshow')->name('/slideshow');
-
-
-
-
+Route::get('/admins/product/add',[AdminController::class, 'add'])->name('newproduct');
+Route::post('admins/product/added', [AdminController::class, 'store'])->name('added');
 
 
 Route::get('/admins', [AdminController::class, 'index'])->name('admins');//->middleware('isAdmin');

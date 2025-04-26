@@ -1,7 +1,8 @@
 @extends('admin.layouts.product')
 @section('content')
-<button class="btn btn-primary btn-margin">Add new Product</button>
-<table class="table m-5">
+ <div class="container">
+ <a href="{{route('newproduct')}}"><button class="btn btn-primary m-3">Add new Product</button></a>
+<table class="table m-3">
   <thead>
     <tr>
       <th>No</th>
@@ -33,5 +34,6 @@
     @endforeach
   </tbody>
 </table>
+ </div>
 
 @endsection
