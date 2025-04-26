@@ -54,13 +54,7 @@
               </li>
               <li class="nav-item">
                 <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Banners</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
+                  <i class="fas fa-users"></i>
                   <p>Users</p>
                 </a>
               </li>

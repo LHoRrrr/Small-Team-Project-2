@@ -17,10 +17,13 @@ class AdminController extends Controller
     public function add(){
         return view('admin.createProduct');
     }
+    public function edit($id) {
+        $product = Product::where('pid', $id)->firstOrFail(); // get only ONE product
+        return view('admin.updateProduct', compact('product'));
+    }
 
     public function store(Request $request)
     {
-
         $request->validate([
             'pname' => 'required',
             'price' => 'required|numeric',
@@ -43,4 +46,23 @@ class AdminController extends Controller
 
         return redirect()->route('product')->with('success', 'Product created successfully.');
     }
+    public function updated(Request $request, $id)
+{
+    $product = Product::findOrFail($id);
+    
+    $product->pname = $request->pname;
+    $product->price = $request->price;
+    $product->pdesc = $request->pdesc;
+    $product->porder = $request->porder;
+
+    if ($request->hasFile('image')) {
+        $imageName = time().'_'.$request->image->getClientOriginalName();
+        $request->image->move(public_path('img'), $imageName);
+        $product->image = $imageName;
+    }
+
+    $product->save();
+
+    return redirect()->route('product')->with('success', 'Product updated successfully.');
+}
 }

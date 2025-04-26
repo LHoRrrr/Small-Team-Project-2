@@ -35,6 +35,11 @@ Route::get('/admins/product',[MyProductController::class,'product'])->name('prod
 Route::get('/admins/product/add',[AdminController::class, 'add'])->name('newproduct');
 Route::post('admins/product/added', [AdminController::class, 'store'])->name('added');
 
+Route::put('admins/product/{id}', [AdminController::class, 'updated'])->name('updated');
+
+
+Route::get('/admins/product/{id}',[AdminController::class, 'edit'])->name('update');
+
 
 Route::get('/admins', [AdminController::class, 'index'])->name('admins');//->middleware('isAdmin');
 Auth::routes();
