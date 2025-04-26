@@ -1,30 +1,26 @@
 @extends('admin.layouts.slideshow')
 @section('content')
-<button class="btn btn-primary btn-margin">Add new Product</button>
+<button class="btn btn-primary btn-margin">Add New Slideshow</button>
 <table class="table m-5">
   <thead>
     <tr>
       <th>No</th>
-      <th>Name</th>
+      <th>Title</th>
       <th>Image</th>
-      <th>Description</th>
-      <th>Price</th>
+      <th>Enable</th>
       <th>Order</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
   @php $i = 1; @endphp
-    @foreach($products as $p)
-    
+    @foreach($slideshow as $sh)
     <tr>
       <td>{{$i++}}</td>
-      <td>{{$p->pname}}</td>
-      <td><img src="img/{{$p->image}}" alt="{{$p->pname}}" width="60"></td>
-      <td class="text-truncate" style="max-width: 200px;">{{ $p->pdesc }}</td>
-
-      <td>${{$p->price}}</td>
-      <td>${{$p->porder}}</td>
+      <td>{{$sh->title}}</td>
+      <td><img src="{{ asset('img/' . $sh->image)}}" alt="{{$sh->title}}" width="60"></td>
+      <td>{{$sh->enable}}</td>
+      <td>{{$sh->ssorder}}</td>
       <td>
         <button class="btn btn-primary">Update</button>
         <button class="btn btn-danger">Delete</button>

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MyDashboardController extends Controller
+class AdminController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
-    public function dashboard(){
+    public function index(){
         return view('admin.dashboard');
+    }
+    public function add(){
+        return view('admin.createProduct');
     }
 }

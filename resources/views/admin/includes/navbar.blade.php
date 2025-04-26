@@ -75,7 +75,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="admin/assets/img/jm_denis.jpg"
+                                src="{{ asset('admin/assets/img/jm_denis.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -88,7 +88,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="admin/assets/img/chadengle.jpg"
+                                src="{{ asset('admin/assets/img/chadengle.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -101,7 +101,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="admin/assets/img/mlane.jpg"
+                                src="{{ asset('admin/assets/img/mlane.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -302,7 +302,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="admin/assets/img/profile.jpg"
+                        src="{{ asset('admin/assets/img/profile.jpg')}}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />

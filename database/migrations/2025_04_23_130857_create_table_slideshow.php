@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('table_slideshow', function (Blueprint $table) {
-            $table->bigIncrements('ssid');
+            $table->id('ssid');
             $table->string('title');
             $table->string('image');
             $table->boolean('enable');
             $table->integer('ssorder');
-            $table->timestamp('create_time')->nullable(); // OR $table->timestamps() for Laravel default
+            $table->timestamps();
         });
     }
     /**

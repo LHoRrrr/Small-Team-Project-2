@@ -4,7 +4,8 @@
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
               <img
-                src="admin/assets/img/kaiadmin/logo_light.svg"
+                src="{{ asset('admin/assets/img/kaiadmin/logo_light.svg')}}
+                "
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -40,13 +41,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/slideshow">
+                <a href="/admins/slideshow">
                   <i class="fas fa-sliders"></i>
                   <p>Slideshows</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/product">
+                <a href="/admins/product">
                   <i class="fas fa-cart-shopping"></i>
                   <p>Products</p>
                 </a>

@@ -18,10 +18,9 @@ class SlideshowFactory extends Factory
     {
         return [
             "title" => $this->faker->sentence(1), // or ->sentence(2) if you want a short name
-            "image" => $this->faker->randomElement(['slide1.jpg', 'slide2.jpg', 'slide3.jpg']),
+            "image" => $this->faker->randomElement(['slide1.png', 'slide2.jpg', 'slide3.jpg']),
             "enable" => $this->faker->boolean(),
             "ssorder" => $this->faker->numberBetween(1, 100)
-            
         ];
     }
 }

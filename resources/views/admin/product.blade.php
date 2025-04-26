@@ -20,11 +20,11 @@
     <tr>
       <td>{{$i++}}</td>
       <td>{{$p->pname}}</td>
-      <td><img src="img/{{$p->image}}" alt="{{$p->pname}}" width="60"></td>
+      <td><img src="{{ asset('img/'. $p->image) }}" alt="{{$p->pname}}" width="60"></td>
       <td class="text-truncate" style="max-width: 200px;">{{ $p->pdesc }}</td>
 
       <td>${{$p->price}}</td>
-      <td>${{$p->porder}}</td>
+      <td>{{$p->porder}}</td>
       <td>
         <button class="btn btn-primary">Update</button>
         <button class="btn btn-danger">Delete</button>

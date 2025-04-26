@@ -11,7 +11,7 @@
     />
 
     <!-- Fonts and icons -->
-    <script src="admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{ asset('admin/assets/js/plugin/webfont/webfont.min.js')}}"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -22,20 +22,21 @@
             "Font Awesome 5 Brands",
             "simple-line-icons",
           ],
-          urls: ["admin/assets/css/fonts.min.css"],
+          urls: ["{{ asset('admin/assets/css/fonts.min.css')}}"],
         },
         active: function () {
           sessionStorage.fonts = true;
         },
-      });
+      })
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="admin/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="admin/assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="admin/assets/css/kaiadmin.min.css" />
-    <link rel="stylesheet" href="admin/assets/css/general.css">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/kaiadmin.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/general.css')}}">
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="admin/assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/demo.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">

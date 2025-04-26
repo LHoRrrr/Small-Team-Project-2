@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Slideshow;
 
 class MySlideshowController extends Controller
 {
     public function slideshow(){
-        $products = Product::All();
-        return view('admin.slideshow',compact('products'));
+        $slideshow = Slideshow::All();
+        return view('admin.slideshow',compact('slideshow'));
     }
 }
