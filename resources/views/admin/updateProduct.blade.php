@@ -1,10 +1,10 @@
 @extends('admin.layouts.product')
 
 @section('content')
-<div class="container mt-4">
-    <h2>Edit Product</h2>
+<div class="container">
+    <h2 class="text-center text-uppercase m-3">Update Product Form</h2>
 
-    <form action="{{ route('updated',$product->pid) }}
+    <form class="m-3" action="{{ route('updated',$product->pid) }}
 " method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')

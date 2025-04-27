@@ -47,22 +47,31 @@ class AdminController extends Controller
         return redirect()->route('product')->with('success', 'Product created successfully.');
     }
     public function updated(Request $request, $id)
-{
-    $product = Product::findOrFail($id);
-    
-    $product->pname = $request->pname;
-    $product->price = $request->price;
-    $product->pdesc = $request->pdesc;
-    $product->porder = $request->porder;
+    {
+        $product = Product::findOrFail($id);
+        
+        $product->pname = $request->pname;
+        $product->price = $request->price;
+        $product->pdesc = $request->pdesc;
+        $product->porder = $request->porder;
 
-    if ($request->hasFile('image')) {
-        $imageName = time().'_'.$request->image->getClientOriginalName();
-        $request->image->move(public_path('img'), $imageName);
-        $product->image = $imageName;
+        if ($request->hasFile('image')) {
+            $imageName = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move(public_path('img'), $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->save();
+
+        return redirect()->route('product')->with('success', 'Product updated successfully.');
+    }
+    //delete product
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('product')->with('success', 'Product deleted successfully.');
     }
 
-    $product->save();
-
-    return redirect()->route('product')->with('success', 'Product updated successfully.');
-}
 }

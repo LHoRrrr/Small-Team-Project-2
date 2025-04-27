@@ -29,7 +29,7 @@
                     <td>
                         <a href="{{ route('update', $p->pid) }}" class="btn btn-primary">Update</a>
 
-                        <form action="" method="POST" style="display:inline;">
+                        <form action="{{ route('delete', $p->pid) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</button>

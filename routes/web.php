@@ -38,7 +38,9 @@ Route::post('admins/product/added', [AdminController::class, 'store'])->name('ad
 Route::put('admins/product/{id}', [AdminController::class, 'updated'])->name('updated');
 
 
-Route::get('/admins/product/{id}',[AdminController::class, 'edit'])->name('update');
+Route::get('/admins/product/update/{id}',[AdminController::class, 'edit'])->name('update');
+
+Route::delete('/admins/product/delete/{id}',[AdminController::class, 'destroy'])->name('delete');
 
 
 Route::get('/admins', [AdminController::class, 'index'])->name('admins');//->middleware('isAdmin');
