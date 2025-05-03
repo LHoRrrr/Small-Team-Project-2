@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\File;
+
 
 class AdminController extends Controller
 {
@@ -23,28 +25,29 @@ class AdminController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'pname' => 'required',
-            'price' => 'required|numeric',
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048'
-        ]);
+{
+    $request->validate([
+        'pname' => 'required',
+        'price' => 'required|numeric',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+    ]);
 
-        $imageName = null;
-        if ($request->hasFile('image')) {
-            $imageName = time().'_'.$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path('img'), $imageName);
-        }
+    $imageName = null;
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = uniqid() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('img'), $imageName);
+    }
 
-        Product::create([
-            'pname' => $request->pname,
-            'pdesc' => $request->pdesc,
-            'price' => $request->price,
-            'porder' => $request->porder,
-            'image' => $imageName
-        ]);
+    Product::create([
+        'pname' => $request->pname,
+        'pdesc' => $request->pdesc,
+        'image' => $imageName,
+        'price' => $request->price,
+        'porder' => $request->porder
+    ]);
 
-        return redirect()->route('product')->with('success', 'Product created successfully.');
+    return redirect()->route('product')->with('success', 'Product created successfully.');
     }
     public function updated(Request $request, $id)
     {
@@ -69,6 +72,14 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+
+        if ($product->image) {
+            $imagePath = public_path('img/' . $product->image);
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+        }
+
         $product->delete();
 
         return redirect()->route('product')->with('success', 'Product deleted successfully.');

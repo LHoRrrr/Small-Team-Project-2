@@ -1,7 +1,7 @@
 @extends('admin.layouts.slideshow')
 @section('content')
 <div class="container">
-<button class="btn btn-primary m-3">Add New Slideshow</button>
+<a href="{{ route('addslideshow')}}"><button class="btn btn-primary m-3">Add New Slideshow</button></a>
 <table class="table m-3">
   <thead>
     <tr>

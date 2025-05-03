@@ -17,9 +17,14 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->isAdmin){
-            return $next($request);
+        if (!auth()->check()) {
+            return redirect('/login'); // unauthenticated
         }
-        return redirect('home')->with('error','You do not have admin auth.');
+    
+        if (!auth()->user()->isAdmin) {
+            return redirect()->route('home');
+        }
+    
+        return $next($request);
     }
 }

@@ -2,8 +2,24 @@
 
 @section('content')
 <div class="container">
+    <h1 class="m-3 text-center text-bold text-uppercase">Product List</h1>
     <a href="{{ route('newproduct') }}" class="btn btn-primary m-3">Add new Product</a>
-
+    @if(session('success'))
+    <div class=" m-3 alert alert-success alert-dismissible fade show" role="alert">
+        {{session('success')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if(session('fail'))
+    <div class=" m-3 alert alert-warning alert-dismissible fade show" role="alert">
+        {{session('fail')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <table class="table m-3">
         <thead>
             <tr>

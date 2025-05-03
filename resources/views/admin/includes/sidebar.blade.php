@@ -28,32 +28,29 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-              <li class="nav-item active">
+              <li class="nav-item {{ Request::is('admins') ? 'active' : '' }}">
                 <a
-                  data-bs-toggle="collapse"
-                  href="/admins"
-                  class="collapsed"
-                  aria-expanded="false"
+                  href="{{ route('admins') }}"
                 >
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                   <span class="caret"></span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/admins/slideshow">
+              <li class="nav-item {{ Route::currentRouteName()=='slideshows' ? 'active' : '' }}">
+                <a href="{{ route('slideshows') }}">
                   <i class="fas fa-sliders"></i>
                   <p>Slideshows</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/admins/product">
+              <li class="nav-item {{ Route::currentRouteName() =='product' ? 'active' : '' }}">
+                <a href="{{ route('product') }}">
                   <i class="fas fa-cart-shopping"></i>
                   <p>Products</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="widgets.html">
+              <li class="nav-item {{ Route::currentRouteName()=='users' ? 'active' : '' }}">
+                <a href="{{ route('admins') }}">
                   <i class="fas fa-users"></i>
                   <p>Users</p>
                 </a>
