@@ -41,6 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('/api/slideshow',[SlideshowController::class,'index']);
   Route::get('/api/slideshow/{id}',[SlideshowController::class,'show']);
   Route::delete('/api/slideshow/{id}',[SlideshowController::class,'destroy']);
+
 });
 
 //route api
@@ -67,6 +68,10 @@ Route::delete('/admins/product/delete/{id}',[AdminController::class, 'destroy'])
 Route::get('/admins/slideshow',[MySlideshowController::class, 'slideshow'])->middleware('isAdmin')->name('slideshows');
 Route::get('/admins/slideshow/add',[AdminSlideshowController::class, 'add'])->middleware('isAdmin')->name('addslideshow');
 Route::post('/admins/slideshow/',[AdminSlideshowController::class,'added'])->middleware('isAdmin')->name('addedslideshow');
+Route::delete('/admins/slideshow/delete/{id}', [AdminSlideshowController::class, 'destroy'])->middleware('isAdmin')->name('deleteSlideshow');
+
+Route::get('/admins/slideshow/{id}/update', [AdminSlideshowController::class, 'edit'])->middleware('isAdmin')->name('editSlideshow');
+Route::put('/admins/slideshow/{id}/updatet',[AdminSlideshowController::class, 'edited'])->middleware('isAdmin')->name('updatedSlideshow');
 
 //route admin  dashboard
 Route::get('/admins', [AdminController::class, 'index'])->middleware('isAdmin')->name('admins');

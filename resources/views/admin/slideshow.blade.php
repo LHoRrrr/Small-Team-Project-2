@@ -23,8 +23,12 @@
       <td>{{$sh->enable}}</td>
       <td>{{$sh->ssorder}}</td>
       <td>
-        <button class="btn btn-primary">Update</button>
-        <button class="btn btn-danger">Delete</button>
+        <a href="{{ route('editSlideshow', $id = $sh->ssid) }}" class="btn btn-primary">Update</a>
+        <form action="{{ route('deleteSlideshow', $sh->ssid) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this slideshow?')">Delete</button>
+            </form>
       </td>
     </tr>
     @endforeach

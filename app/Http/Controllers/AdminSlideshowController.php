@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slideshow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminSlideshowController extends Controller
 {
@@ -35,5 +36,39 @@ class AdminSlideshowController extends Controller
     
     public function add(){
         return view('admin.addSlideshow');
+    }
+
+    public function destroy($id) {
+        $slideshow = Slideshow::findOrFail($id);
+
+        if ($slideshow->image){
+            $imagePath = public_path('img/' . $slideshow->image);
+            if (File::exists($imagePath)){
+                File::delete($imagePath);
+            }
+        }
+        $slideshow->delete();
+        return redirect()->route('slideshows')->with('success', 'Slideshow deleted successfully.');
+    }
+    public function edit($id){
+        $slideshow = Slideshow::where('ssid', $id)->firstOrFail();
+        return view('admin.updateSlideshow', compact('slideshow'));
+    }
+    public function edited(Request $request, $id) {
+        $slideshow = Slideshow::findOrFail($id);
+
+        $slideshow->title = $request->title;
+        $slideshow->ssorder = $request->ssorder;
+        $slideshow->enable = $request->enable;
+
+        
+        if($request->hasFile('image')){
+            $imageName = time() . '_' .
+            $request->image->getClientOriginalName();
+            $request->image->move(public_path('img'),$imageName);
+            $slideshow->image = $imageName;
+        }
+        $slideshow->save();
+        return redirect()->route('slideshows')->with('success', 'Slideshow updated successfully.');
     }
 }
