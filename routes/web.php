@@ -33,29 +33,35 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('/api/users/{id}', [UserController::class, 'show']);
   Route::put('/api/users/{id}', [UserController::class, 'update']);
   Route::delete('/api/users/{id}', [UserController::class, 'destroy']);
-  // api slideshow table
+  // api user table
+  // api product table
   Route::get('/api/product',[ProductController::class, 'index']);
   Route::get('/api/product/{id}',[ProductController::class, 'show']);
   Route::delete('/api/product/{id}',[ProductController::class, 'destroy']);
   // api product table
+  // api slideshow table
   Route::get('/api/slideshow',[SlideshowController::class,'index']);
   Route::get('/api/slideshow/{id}',[SlideshowController::class,'show']);
   Route::delete('/api/slideshow/{id}',[SlideshowController::class,'destroy']);
-
+  //api slideshow table
 });
-
 //route api
 
 //route user 
+//home page for user
 Route::get('/',[MyHomeController::class, 'index']
 )->name('home');
+//home page for user
 
+//cart page for user
 Route::get('/cart',[MyCartController::class,'cart']);
+Route::get('/addToCart/{id}',[MyCartController::class, 'addToCart'])->name('add.to.cart');
+Route::post('/updateCart',[MyCartController::class, 'updateCart'])->name('cart.update');
+//cart page for user
 //route user
-//Route::get('/admins', [MyDashboardController::class, 'dashboard'])->middleware('isAdmin');
+
 
 //route admin
-
 //route admin product
 Route::get('/admins/product',[MyProductController::class,'product'])->middleware('isAdmin')->name('product');
 Route::get('/admins/product/add',[AdminController::class, 'add'])->middleware('isAdmin')->name('newproduct');

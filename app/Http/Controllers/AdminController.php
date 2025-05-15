@@ -57,13 +57,11 @@ class AdminController extends Controller
         $product->price = $request->price;
         $product->pdesc = $request->pdesc;
         $product->porder = $request->porder;
-
         if ($request->hasFile('image')) {
             $imageName = time().'_'.$request->image->getClientOriginalName();
             $request->image->move(public_path('img'), $imageName);
             $product->image = $imageName;
         }
-
         $product->save();
 
         return redirect()->route('product')->with('success', 'Product updated successfully.');

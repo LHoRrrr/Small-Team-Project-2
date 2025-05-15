@@ -39,7 +39,14 @@
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
                                 <div class="col-lg-12">
-                                    
+                                    @if(session('success'))
+                                    <div class="m-3 alert alert-success alert-dismissible fade show d-flex justify-content-between align-items-center" role="alert">
+                                        <p class="mb-0">{{ session('success') }}</p>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="background: none; border: none;">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    @endif
                                     <div class="row g-4">
                                     @foreach($products as $p)
                                         <div class="col-md-6 col-lg-4 col-xl-3">
@@ -55,7 +62,7 @@
                                                     </div>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{$p->price}} / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="{{ route('add.to.cart', $p->pid) }}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
