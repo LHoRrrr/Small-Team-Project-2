@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Slideshow;
 use Illuminate\Http\Request;
@@ -68,5 +69,73 @@ class MyCartController extends Controller
     ], 404);
 }
 
-   
+public function order(Request $request)
+    {
+        // Create a new order for the authenticated user
+        $order = Order::create([
+            "user_id" => auth()->user()->id
+        ]);
+
+        $amount = 0;
+
+        // Iterate through cart items in session
+        foreach (session('cart') as $key => $value) {
+            // Create an order-product relationship entry
+            $order->products()->create([
+                "product_id" => $key,
+                "quantity" => $value['quantity'],
+                "price" => $value['price']
+            ]);
+
+            // Correct amount calculation
+            $amount += $value['quantity'] * $value['price'];
+        }
+
+        // Save total amount to the order
+        $order->amount = $amount;
+
+        // Correct method: use ->save() not -save()
+        $order->save();
+        // Show the final order object
+        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+
+        $successURL = route('order.success') .'?session_id= {CHECKOUT_SESSION_ID}&order_id=' . $order->id ;
+        $response = $stripe->checkout->sessions->create([
+        'success_url' => $successURL,
+        'customer_email' => auth()->user()->email,
+        'line_items' => [
+            [
+            'price_data' => [
+                "product_data" => [
+                    "name" => "shping",
+                ],
+                "unit_amount" => 100 * $amount,
+                "currency" => "USD"
+            ],
+            'quantity' => 1,
+            ],
+        ],
+        'mode' => 'payment',
+        ]);
+        return redirect($response['url']);
+    }
+
+    public function orderSuccess(Request $request){
+        //dd($request->all());
+        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+
+        $session = $stripe->checkout->sessions->retrieve($request->session_id);
+        if($session->status == "complete"){
+            $order = Order::find($request->order_id);
+            $order->status = 1;
+            $order->strip_id = $session->id;
+            $order->save();
+            return redirect()->route('home')->with("success", "Order Placed!");
+        }
+            $order = Order::find($request->order_id);
+            $order->status = 2;
+            $order->save();
+        dd('Fail');
+    }
+ 
 }

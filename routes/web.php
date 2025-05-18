@@ -57,9 +57,10 @@ Route::get('/',[MyHomeController::class, 'index']
 Route::get('/cart',[MyCartController::class,'cart']);
 Route::get('/addToCart/{id}',[MyCartController::class, 'addToCart'])->name('add.to.cart');
 Route::post('/updateCart',[MyCartController::class, 'updateCart'])->name('cart.update');
+Route::post('/order',[MyCartController::class, 'order'])->name('order.product');
+Route::get('/order-success',[MyCartController::class, 'orderSuccess'])->name('order.success');
 //cart page for user
 //route user
-
 
 //route admin
 //route admin product
